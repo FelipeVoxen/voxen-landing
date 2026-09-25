@@ -16,4 +16,4 @@ Auto-deploy con Vercel al pushear a `main`. El proyecto sirve estatico sin build
 
 ## Hero 3D y nav kinetico
 
-La V roja 3D del hero y el menu kinetico corren en la plataforma (`app.voxenvisuals.com/agencia-clon-hero` y `/agencia-clon-nav`) y se embeben aca como iframes cross-origin. Si algun dia se rompen: el CSP `frame-ancestors` de la plataforma tiene que permitir a `https://voxenvisuals.com`.
+La V roja 3D del hero y el menu kinetico corren en la plataforma (`voxenvisuals.app/agencia-clon-hero` y `/agencia-clon-nav`) y se embeben aca como iframes cross-origin. Si algun dia se rompen: el CSP `frame-ancestors` de la plataforma tiene que permitir a `https://voxenvisuals.com`.
