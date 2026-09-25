@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+
+# Áreas privadas (login/paneles): no tiene sentido que se indexen.
+Disallow: /admin
+Disallow: /editor
+Disallow: /cliente
+Disallow: /cuenta
+Disallow: /mfa
+Disallow: /login
+Disallow: /avisos
+Disallow: /api/
+
+Sitemap: https://voxenvisuals.com/sitemap.xml
