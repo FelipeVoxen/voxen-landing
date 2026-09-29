@@ -5616,7 +5616,10 @@ body.vx-jobs-open{overflow:hidden}
   // animacion queda cortada porque el menu vive dentro del iframe.
   var vxKnavColapsar = null;
   window.addEventListener('message', function(ev){
-    if (ev.origin !== window.location.origin) return;
+    // El menu vive en la plataforma (otro dominio): solo se aceptan avisos
+    // que vengan de ella. Antes se exigia el mismo dominio de la landing y,
+    // al separar landing y panel, el menu dejo de poder abrirse entero.
+    if (ev.origin !== 'https://voxenvisuals.app') return;
     var d = ev.data || {};
     var frame = document.getElementById('vx-knav-embed');
     if (d.type === 'vx-nav-open' && frame) {
