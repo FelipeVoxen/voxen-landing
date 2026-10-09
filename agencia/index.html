@@ -970,9 +970,10 @@
    las dos fotos a la vez y un solo texto que habla de ambos. */
 .vx-team2-head.vx-fd-head{text-align:right;align-items:flex-end;margin-bottom:48px}
 @media (max-width:767px){.vx-team2-head.vx-fd-head{margin-bottom:32px}}
-.vx-fd{max-width:1000px;margin:0 auto 72px;padding:0 24px;display:grid;grid-template-columns:1.1fr 1fr;gap:64px;align-items:center}
-.vx-fd-fotos{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start}
-.vx-fd-card{position:relative;margin:0;border-radius:20px;overflow:hidden;aspect-ratio:4/5;background:#0f0f0f;box-shadow:0 20px 50px rgba(0,0,0,.5)}
+.vx-fd{max-width:1112px;margin:0 auto 72px;padding:0 24px;display:grid;grid-template-columns:auto 1fr;gap:64px;align-items:center}
+/* Mismo tamaño que las tarjetas del equipo de abajo (.vx-team2-card: 256x368) */
+.vx-fd-fotos{display:grid;grid-template-columns:repeat(2,256px);gap:24px;align-items:start}
+.vx-fd-card{position:relative;margin:0;border-radius:16px;overflow:hidden;aspect-ratio:256/368;background:#0f0f0f;box-shadow:0 20px 50px rgba(0,0,0,.5)}
 .vx-fd-card:nth-child(2){margin-top:40px}
 .vx-fd-card img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
 .vx-fd-cap{position:absolute;left:8px;right:8px;bottom:8px;padding:10px 12px;border-radius:10px;background:rgba(22,14,12,0.85);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);display:flex;flex-direction:column;gap:2px}
@@ -981,9 +982,13 @@
 .vx-fd-name{font-weight:700;font-size:28px;line-height:1.2;color:#fff;margin:0}
 .vx-fd-role{font-size:14px;color:#d3290c;margin:6px 0 0;font-weight:500}
 .vx-fd-quote{font-size:18px;line-height:1.6;color:#a3a3a3;margin:24px 0 0}
+@media (max-width:1023px){
+  .vx-fd{grid-template-columns:1fr;gap:36px;justify-items:center}
+  .vx-fd-body{max-width:560px}
+}
 @media (max-width:767px){
   .vx-fd{grid-template-columns:1fr;gap:28px;margin-bottom:56px}
-  .vx-fd-fotos{max-width:420px;margin:0 auto;width:100%}
+  .vx-fd-fotos{grid-template-columns:1fr 1fr;gap:16px;max-width:528px;margin:0 auto;width:100%}
   .vx-fd-card:nth-child(2){margin-top:24px}
   .vx-fd-name{font-size:24px}
   .vx-fd-quote{font-size:16px;margin-top:16px}
@@ -5013,9 +5018,9 @@ body.vx-jobs-open{overflow:hidden}
     rol1: {es:'Fundador', en:'Founder', de:'Gründer'},
     rol2: {es:'Fundador', en:'Founder', de:'Gründer'},
     texto: {
-      es: 'Felipe y Michel fundaron Voxen y están en cada proyecto de punta a punta: definen la estrategia, coordinan al equipo, son el contacto directo con cada cliente y hacen el control de calidad final. Nada sale sin que lo revisen.',
-      en: 'Felipe and Michel founded Voxen and are part of every project from start to finish: they set the strategy, coordinate the team, are the direct contact with every client and run the final quality check. Nothing ships without their review.',
-      de: 'Felipe und Michel haben Voxen gegründet und begleiten jedes Projekt von Anfang bis Ende: Sie legen die Strategie fest, koordinieren das Team, sind der direkte Kontakt zu jedem Kunden und übernehmen die finale Qualitätskontrolle. Nichts geht raus, ohne dass sie es geprüft haben.'
+      es: 'Fundaron Voxen y están en cada proyecto de punta a punta: definen la estrategia, coordinan al equipo, son el contacto directo con cada cliente y hacen el control de calidad final. Nada sale sin que lo revisen.',
+      en: 'They founded Voxen and are part of every project from start to finish: they set the strategy, coordinate the team, are the direct contact with every client and run the final quality check. Nothing ships without their review.',
+      de: 'Sie haben Voxen gegründet und begleiten jedes Projekt von Anfang bis Ende: Sie legen die Strategie fest, koordinieren das Team, sind der direkte Kontakt zu jedem Kunden und übernehmen die finale Qualitätskontrolle. Nichts geht raus, ohne dass sie es geprüft haben.'
     }
   };
 
