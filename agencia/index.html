@@ -966,39 +966,27 @@
   .vx-team2-marquee{flex-wrap:wrap;gap:16px;width:100%;max-width:544px;margin:0 auto}
   .vx-team2-card{width:calc(50% - 8px);max-width:256px;height:auto;aspect-ratio:256/368}
 }
-/* Fundadores (port vanilla de AnimatedTestimonials, oct-2026): Felipe y Michel
-   arriba del equipo. Pila de fotos que rota + cita palabra por palabra. */
+/* Fundadores (oct-2026): Felipe y Michel juntos en un bloque estatico,
+   las dos fotos a la vez y un solo texto que habla de ambos. */
 .vx-team2-head.vx-fd-head{text-align:right;align-items:flex-end;margin-bottom:48px}
 @media (max-width:767px){.vx-team2-head.vx-fd-head{margin-bottom:32px}}
-.vx-fd{max-width:900px;margin:0 auto 72px;padding:0 24px;display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
-.vx-fd-stack{position:relative;width:100%;max-width:360px;aspect-ratio:1/1;margin:0 auto}
-.vx-fd-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;border-radius:24px;transform-origin:bottom center;opacity:.7;transform:scale(.95) rotate(var(--vx-fd-rot,0deg));transition:transform .4s ease-in-out,opacity .4s ease-in-out;box-shadow:0 20px 50px rgba(0,0,0,.5)}
-.vx-fd-img.is-active{opacity:1;transform:scale(1) rotate(0deg);animation:vxFdBump .4s ease-in-out}
-@keyframes vxFdBump{0%{translate:0 0}50%{translate:0 -80px}100%{translate:0 0}}
-.vx-fd-body{display:flex;flex-direction:column;justify-content:space-between;min-height:300px;padding:16px 0}
-.vx-fd-name{font-weight:700;font-size:26px;line-height:1.2;color:#fff;margin:0}
-.vx-fd-role{font-size:14px;color:#8a8a8a;margin:4px 0 0}
-.vx-fd-name,.vx-fd-role{animation:vxFdIn .2s ease-in-out both}
-@keyframes vxFdIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
-.vx-fd-quote{font-size:18px;line-height:1.6;color:#a3a3a3;margin:32px 0 0}
-.vx-fd-word{display:inline-block;animation:vxFdWord .2s ease-in-out both}
-@keyframes vxFdWord{from{filter:blur(10px);opacity:0;transform:translateY(5px)}to{filter:blur(0);opacity:1;transform:none}}
-.vx-fd-nav{display:flex;gap:16px;padding-top:40px}
-.vx-fd-btn{width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,.12);background:#1a1a1a;color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .2s ease,border-color .2s ease,transform .16s ease-out}
-.vx-fd-btn:hover{background:#d3290c;border-color:#d3290c}
-.vx-fd-btn:active{transform:scale(.95)}
-.vx-fd-btn svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transition:transform .3s ease}
-.vx-fd-btn[data-vx-fd="prev"]:hover svg{transform:rotate(12deg)}
-.vx-fd-btn[data-vx-fd="next"]:hover svg{transform:rotate(-12deg)}
+.vx-fd{max-width:1000px;margin:0 auto 72px;padding:0 24px;display:grid;grid-template-columns:1.1fr 1fr;gap:64px;align-items:center}
+.vx-fd-fotos{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start}
+.vx-fd-card{position:relative;margin:0;border-radius:20px;overflow:hidden;aspect-ratio:4/5;background:#0f0f0f;box-shadow:0 20px 50px rgba(0,0,0,.5)}
+.vx-fd-card:nth-child(2){margin-top:40px}
+.vx-fd-card img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
+.vx-fd-cap{position:absolute;left:8px;right:8px;bottom:8px;padding:10px 12px;border-radius:10px;background:rgba(22,14,12,0.85);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);display:flex;flex-direction:column;gap:2px}
+.vx-fd-cap-name{font-weight:600;font-size:15px;color:#fff;line-height:1.2}
+.vx-fd-cap-role{font-size:13px;color:#fff;opacity:.75}
+.vx-fd-name{font-weight:700;font-size:28px;line-height:1.2;color:#fff;margin:0}
+.vx-fd-role{font-size:14px;color:#d3290c;margin:6px 0 0;font-weight:500}
+.vx-fd-quote{font-size:18px;line-height:1.6;color:#a3a3a3;margin:24px 0 0}
 @media (max-width:767px){
   .vx-fd{grid-template-columns:1fr;gap:28px;margin-bottom:56px}
-  .vx-fd-stack{max-width:300px}
-  .vx-fd-body{min-height:0;padding:0}
-  .vx-fd-quote{font-size:16px;margin-top:20px}
-  .vx-fd-nav{padding-top:24px}
-}
-@media (prefers-reduced-motion:reduce){
-  .vx-fd-img,.vx-fd-img.is-active,.vx-fd-word,.vx-fd-name,.vx-fd-role{animation:none!important;transition:opacity .2s ease!important}
+  .vx-fd-fotos{max-width:420px;margin:0 auto;width:100%}
+  .vx-fd-card:nth-child(2){margin-top:24px}
+  .vx-fd-name{font-size:24px}
+  .vx-fd-quote{font-size:16px;margin-top:16px}
 }
 </style>
 <style>.vx-slider-handle{display:inline-flex;align-items:center}</style>
@@ -4951,21 +4939,21 @@ body.vx-jobs-open{overflow:hidden}
       <h1 class="vx-team2-title">Quienes <span class="vx-acento">lideran</span></h1>
       <p class="vx-team2-sub">Los fundadores de Voxen. Están en cada proyecto, desde la estrategia hasta el control de calidad final</p>
     </div>
-    <div class="vx-fd" id="vx-fundadores" aria-roledescription="carrusel" aria-label="Fundadores">
-      <div class="vx-fd-stack">
-        <img class="vx-fd-img" src="/agencia/images/team/felipe.webp" alt="Felipe" draggable="false">
-        <img class="vx-fd-img" src="/agencia/images/team/michel.webp" alt="Michel" draggable="false">
+    <div class="vx-fd" id="vx-fundadores" aria-label="Fundadores">
+      <div class="vx-fd-fotos">
+        <figure class="vx-fd-card">
+          <img src="/agencia/images/team/felipe.webp" alt="Felipe" draggable="false">
+          <figcaption class="vx-fd-cap"><span class="vx-fd-cap-name">Felipe</span><span class="vx-fd-cap-role" data-vx-fd="rol1">Fundador</span></figcaption>
+        </figure>
+        <figure class="vx-fd-card">
+          <img src="/agencia/images/team/michel.webp" alt="Michel" draggable="false">
+          <figcaption class="vx-fd-cap"><span class="vx-fd-cap-name">Michel</span><span class="vx-fd-cap-role" data-vx-fd="rol2">Fundador</span></figcaption>
+        </figure>
       </div>
       <div class="vx-fd-body">
-        <div aria-live="polite">
-          <h3 class="vx-fd-name"></h3>
-          <p class="vx-fd-role"></p>
-          <p class="vx-fd-quote"></p>
-        </div>
-        <div class="vx-fd-nav">
-          <button type="button" class="vx-fd-btn" data-vx-fd="prev" aria-label="Anterior"><svg viewBox="0 0 24 24"><path d="M5 12h14M5 12l6 6M5 12l6-6"/></svg></button>
-          <button type="button" class="vx-fd-btn" data-vx-fd="next" aria-label="Siguiente"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 18l6-6M13 6l6 6"/></svg></button>
-        </div>
+        <h3 class="vx-fd-name">Felipe &amp; Michel</h3>
+        <p class="vx-fd-role" data-vx-fd="rol">Fundadores</p>
+        <p class="vx-fd-quote" data-vx-fd="texto"></p>
       </div>
     </div>
     <div class="vx-team2-head">
@@ -5018,107 +5006,43 @@ body.vx-jobs-open{overflow:hidden}
 })();
 </script><script>
 (function(){
-  // Fundadores: port vanilla de AnimatedTestimonials (Aceternity). Textos en
-  // los 3 idiomas acá mismo: la cita se parte palabra por palabra para la
-  // animación, así que el traductor global (VX_DICT) no la puede traducir.
-  // Bios: las mismas que ya tenía la landing (equipo viejo), con sus
-  // traducciones del diccionario.
-  var DATA = [
-    {
-      name: 'Felipe',
-      role: {es:'Fundador', en:'Founder', de:'Gründer'},
-      quote: {
-        es: 'Lleva la estrategia, la relación con cada cliente y el control de calidad final: nada sale sin que lo revise',
-        en: 'He runs strategy, the relationship with every client and final quality control: nothing ships without his review',
-        de: 'Er verantwortet Strategie, die Beziehung zu jedem Kunden und die finale Qualitätskontrolle: Nichts geht raus, ohne dass er es geprüft hat'
-      }
-    },
-    {
-      name: 'Michel',
-      role: {es:'Fundador', en:'Founder', de:'Gründer'},
-      quote: {
-        es: 'Coordina cada proyecto de punta a punta: define la estrategia, organiza al equipo y es el puente directo con el cliente. Trae experiencia en desarrollo de negocio y estrategia de contenido',
-        en: 'Coordinates every project end to end: he sets the strategy, organizes the team and is the direct bridge to the client. He brings experience in business development and content strategy',
-        de: 'Koordiniert jedes Projekt von Anfang bis Ende: Er legt die Strategie fest, organisiert das Team und ist die direkte Brücke zum Kunden. Er bringt Erfahrung in Business Development und Content-Strategie mit'
-      }
+  // Fundadores: bloque estatico con Felipe y Michel juntos. Los textos van
+  // aca en los 3 idiomas y se repintan cuando el visitante cambia de idioma.
+  var TXT = {
+    rol:  {es:'Fundadores', en:'Founders', de:'Gründer'},
+    rol1: {es:'Fundador', en:'Founder', de:'Gründer'},
+    rol2: {es:'Fundador', en:'Founder', de:'Gründer'},
+    texto: {
+      es: 'Felipe y Michel fundaron Voxen y están en cada proyecto de punta a punta: definen la estrategia, coordinan al equipo, son el contacto directo con cada cliente y hacen el control de calidad final. Nada sale sin que lo revisen.',
+      en: 'Felipe and Michel founded Voxen and are part of every project from start to finish: they set the strategy, coordinate the team, are the direct contact with every client and run the final quality check. Nothing ships without their review.',
+      de: 'Felipe und Michel haben Voxen gegründet und begleiten jedes Projekt von Anfang bis Ende: Sie legen die Strategie fest, koordinieren das Team, sind der direkte Kontakt zu jedem Kunden und übernehmen die finale Qualitätskontrolle. Nichts geht raus, ohne dass sie es geprüft haben.'
     }
-  ];
-  var AUTOPLAY_MS = 6000;
-
-  // La sección Equipo la inserta otro script (insertarEquipoV2) cuando carga
-  // la página: se espera a que el bloque exista y se arranca una sola vez.
-  function iniciar(root){
-  var imgs = root.querySelectorAll('.vx-fd-img');
-  var elName = root.querySelector('.vx-fd-name');
-  var elRole = root.querySelector('.vx-fd-role');
-  var elQuote = root.querySelector('.vx-fd-quote');
-  var activo = 0;
-
-  // Rotación fija al azar por foto (como el original), entre -10 y 10 grados.
-  imgs.forEach(function(img){
-    img.style.setProperty('--vx-fd-rot', (Math.floor(Math.random() * 21) - 10) + 'deg');
-  });
+  };
 
   function lang(){ return window.VX_LANG === 'en' || window.VX_LANG === 'de' ? window.VX_LANG : 'es'; }
 
   function pintar(){
-    var d = DATA[activo], l = lang();
-    imgs.forEach(function(img, i){
-      var es = i === activo;
-      img.classList.toggle('is-active', es);
-      // La activa arriba de todo; el resto, detrás en orden.
-      img.style.zIndex = es ? 40 : DATA.length + 2 - i;
-    });
-    // Re-disparar la animación de entrada de nombre y rol.
-    [elName, elRole].forEach(function(el){ el.style.animation = 'none'; void el.offsetWidth; el.style.animation = ''; });
-    elName.textContent = d.name;
-    elRole.textContent = d.role[l];
-    elQuote.textContent = '';
-    d.quote[l].split(' ').forEach(function(w, i){
-      var sp = document.createElement('span');
-      sp.className = 'vx-fd-word';
-      sp.style.animationDelay = (0.02 * i) + 's';
-      sp.textContent = w;
-      elQuote.appendChild(sp);
-      elQuote.appendChild(document.createTextNode(' '));
+    var root = document.getElementById('vx-fundadores');
+    if (!root) return;
+    var l = lang();
+    root.querySelectorAll('[data-vx-fd]').forEach(function(el){
+      var t = TXT[el.getAttribute('data-vx-fd')];
+      if (t) el.textContent = t[l];
     });
   }
 
-  function ir(paso){ activo = (activo + paso + DATA.length) % DATA.length; pintar(); }
-
-  root.addEventListener('click', function(ev){
-    var b = ev.target.closest('[data-vx-fd]');
-    if (!b) return;
-    ir(b.getAttribute('data-vx-fd') === 'prev' ? -1 : 1);
-    reiniciarAuto();
-  });
-
-  // Autoplay: se pausa con el mouse encima y cuando la pestaña no se ve.
-  var timer = null, encima = false;
-  function reiniciarAuto(){
-    clearInterval(timer);
-    timer = setInterval(function(){ if (!encima && !document.hidden) ir(1); }, AUTOPLAY_MS);
-  }
-  root.addEventListener('mouseenter', function(){ encima = true; });
-  root.addEventListener('mouseleave', function(){ encima = false; });
-
-  repintar = pintar;
-  pintar();
-  reiniciarAuto();
-  }
-
-  var repintar = null;
   var previo = window.__vxOnLangChange;
   window.__vxOnLangChange = function(l){
     if (typeof previo === 'function') try { previo(l); } catch(e){}
-    if (repintar) repintar();
+    pintar();
   };
 
+  // La seccion Equipo la inserta otro script al cargar: se pinta en cuanto aparece.
   function buscar(){
     var root = document.getElementById('vx-fundadores');
     if (!root || root.getAttribute('data-vx-fd-ok')) return;
     root.setAttribute('data-vx-fd-ok', '1');
-    iniciar(root);
+    pintar();
   }
   buscar();
   new MutationObserver(buscar).observe(document.body, {childList:true, subtree:true});
